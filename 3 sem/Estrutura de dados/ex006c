@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+struct alunos
+{
+    int idade;
+    char nome[20];
+    float nota;
+};
+
+void cadastro(struct alunos *prototype);
+void leitura(struct alunos *prototype);
+
+int main(void)
+{
+    setlocale(LC_ALL, "");
+    system("cls");
+
+    int choice;
+    struct alunos prototype;
+
+    while (choice != 3)
+    {
+
+        printf("Bem vindo ao cadastro de aluno!! \n Digite a opção desejada: \n 1 - cadastrar \n 2 - ler \n 3 - sair \n escolha: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            cadastro(&prototype);
+            break;
+        case 2:
+            leitura(&prototype);
+            break;
+
+        case 3:
+            printf("\n Volte sempre :)");
+            break;
+        default:
+
+            pritnf("\n Opção inválida");
+            break;
+        }
+    }
+    return 0;
+}
+
+cadastro(struct alunos *prototype)
+{
+    system("cls");
+    printf("\n Por favor, digite o nome do aluno: ");
+    fgets(prototype.nome, 20, stdin);
+    printf("\n Agora, insira a idade: ");
+    scanf("%d", prototype.idade);
+    printf("\n Agora, insira a nota: ");
+    scanf("%f", prototype.nota);
+    system("pause");
+}
+
+leitura(struct alunos *prototype)
+{
+    system("cls");
+    printf("Nome do aluno: %s \n idade: %d \n nota %.2f", prototype.nome[20], prototype.idade, prototype.nota);
+}
